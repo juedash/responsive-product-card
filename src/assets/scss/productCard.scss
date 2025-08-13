@@ -1,0 +1,62 @@
+.product-card {
+  cursor: pointer;
+  .product-image {
+    position: relative;
+  }
+
+  .product-hover-overlay {
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 20;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 0 1rem;
+    width: 100%;
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+    cursor: pointer
+  }
+
+  .product-stars {
+    font-size: small;
+    transition: all 0.3s;
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .product-variants {
+    span:hover{
+      border-color: var(--bs-primary)!important;
+    }
+  }
+
+  // Desktop default: hidden until hover
+  @media (min-width: 1024px) {
+    .product-stars {
+      transform: translateY(1rem);
+      opacity: 0;
+    }
+    .product-hover-overlay {
+      transform: translateY(3rem);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s;
+    }
+
+    &:hover {
+      .product-stars {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      .product-hover-overlay {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
+}
